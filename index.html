@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>aZú Pastelería</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Tipografías (similares a la maqueta) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azu-azul:#6c8fb0;        /* barra superior + botones */
+      --azu-azul-osc:#587a98;    /* hover */
+      --azu-beige:#efe8dd;       /* navbar */
+      --azu-texto:#1f1f1f;
+      --azu-gris:#f7f7f7;
+      --azu-borde:#e9e2d9;
+    }
+
+    body{ font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--azu-texto); background:#ffffff}
+    h1,h2,h3,h4,.logo{ font-family:'Playfair Display', serif }
+
+    /* Barra informativa superior */
+    .topbar{
+      background:var(--azu-azul);
+      color:#fff;
+      font-size:.9rem;
+      letter-spacing:.2px;
+    }
+    .topbar a{ color:#fff; text-decoration:underline }
+
+    /* Logo centrado */
+    .logo-wrap{
+      padding:22px 0;
+    }
+    .logo{
+      font-size:64px;
+      line-height:1;
+      letter-spacing:.12em;
+    }
+    .logo-sub{
+      font-size:14px;
+      margin-top:6px;
+      letter-spacing:.25em;
+      text-transform:lowercase;
+    }
+
+    /* Navbar beige */
+    .navbar-azu{
+      background:var(--azu-beige);
+      border-top:1px solid var(--azu-borde);
+      border-bottom:1px solid var(--azu-borde);
+    }
+    .navbar-azu .nav-link{
+      color:#000;
+      font-weight:500;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:.9rem;
+    }
+    .navbar-azu .nav-link:hover{ opacity:.7 }
+
+    /* “Vista previa” */
+    .vista-previa-badge{
+      position:absolute; left:0; top:-34px;
+      background:#fff; border:1px solid var(--azu-borde);
+      border-bottom:0; padding:6px 10px;
+      font-size:.8rem; letter-spacing:.1em; text-transform:uppercase;
+    }
+
+    /* Tarjetas de producto */
+    .product-card{
+      border:1px solid var(--azu-borde);
+      background:#fff;
+      transition:.2s ease;
+      height:100%;
+    }
+    .product-card:hover{ transform:translateY(-2px) }
+    .product-card img{ width:100%; height:220px; object-fit:cover }
+    .product-title{
+      font-size:.95rem; font-weight:600; min-height:44px;
+    }
+    .product-price{
+      font-weight:700; color:#000;
+    }
+    .btn-azu{
+      background:var(--azu-azul); color:#fff; border:0; border-radius:0;
+      font-size:.85rem; letter-spacing:.08em; text-transform:uppercase;
+    }
+    .btn-azu:hover{ background:var(--azu-azul-osc); color:#fff }
+
+    /* Secciones con títulos centrados */
+    .section-title{
+      text-align:center;
+      font-weight:600;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-bottom:22px;
+    }
+
+    /* Bloques inferiores */
+    .faq-band{
+      background:#e4edf6; /* azul muy claro similar */
+      padding:44px 0;
+    }
+    .faq-band h3{
+      font-family:'Playfair Display',serif;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+    .zone-title{
+      text-align:center; font-family:'Playfair Display',serif;
+      font-size:32px; margin:18px 0 10px;
+    }
+    .newsletter{
+      padding:40px 0;
+      background:#ffffff;
+      border-top:1px solid var(--azu-borde);
+      border-bottom:1px solid var(--azu-borde);
+    }
+    .footer{
+      padding:26px 0; text-align:center; font-size:.9rem; color:#777;
+    }
+
+    /* Carousels con bordes suaves y spacing */
+    .carousel-item img{ object-fit:cover; width:100%; height:320px; }
+    .carousel-frame{
+      border:1px solid var(--azu-borde);
+      background:#fff;
+    }
+
+    /* Pequeños detalles */
+    .mini-copy{ font-size:.85rem; color:#666 }
+    .chip{
+      background:#fff; border:1px solid var(--azu-borde);
+      padding:6px 10px; border-radius:999px; font-size:.85rem;
+    }
+
+    @media (min-width:1200px){
+      .container-xxl{ max-width:1320px }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="topbar">
+    <div class="container-xxl py-2 text-center">
+      <span>APROVECHA <strong>DESPACHO GRATIS</strong> EN COMPRAS SOBRE <strong>$50.000</strong> DENTRO DE ÑUÑOA. MÁS INFO EN NUESTRAS <a href="#">POLÍTICAS DE ENVÍO</a>.</span>
+    </div>
+  </div>
+
+  <!-- Logo centrado -->
+  <div class="container-xxl logo-wrap text-center">
+    <div class="logo">a Z ú</div>
+    <div class="logo-sub">pastelería</div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-azu">
+    <div class="container-xxl">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navMain">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link" href="#">Sobre nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Tiendas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Cumpleaños</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="py-5 position-relative">
+    <div class="container-xxl">
+      <span class="vista-previa-badge">Vista previa</span>
+
+      <div class="row g-4">
+        <!-- Producto -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://ibb.co/k27ThCD0"><img src="https://i.ibb.co/hF6NKzdH/torta-1.jpg" alt="torta-1" border="0"></a>
+            <div class="p-3">
+              <div class="product-title">Torta Palmera Manjar y Frambuesa</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$25.990</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://ibb.co/S4QVbx08"><img src="https://i.ibb.co/hJX2bMHj/torta-merengue-manjar.png" alt="torta-merengue-manjar" border="0" /></a>
+            <div class="p-3">
+              <div class="product-title">Torta Milhoja Manjar y Merengue</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$32.990</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://ibb.co/SDxRDtff"><img src="https://i.ibb.co/9mvsmbZZ/carrot-cake.jpg" alt="carrot-cake" border="0" /></a>
+            <div class="p-3">
+              <div class="product-title">Torta Zanahoria Queso Crema</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$31.990</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://ibb.co/8DRZkyPr"><img src="https://i.ibb.co/fYKwJ3rk/Brazo-merengue-framb.png" alt="Brazo-merengue-framb" border="0" /></a>
+            <div class="p-3">
+              <div class="product-title">Torta Helada Merengue Frambuesa</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$19.990</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- fila 2 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/k6Qzpw21/brownie-box.jpg" alt="brownie-box" border="0" /></a>
+            <div class="p-3">
+              <div class="product-title">Caja de Fudge Brownie (9 trozos)</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$12.990</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://ibb.co/YBCB3nFs"><img src="https://i.ibb.co/CKcKzC3G/tableto-n-psitacho.jpg" alt="tableto-n-psitacho" border="0" /></a>
+            <div class="p-3">
+              <div class="product-title">Tableta Chocolate Pistacho 100 g</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$5.990</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://ibb.co/YTKhQ0yF"><img src="https://i.ibb.co/wrb4gcwF/galleta-ara-ndano.jpg" alt="galleta-ara-ndano" border="0" /></a>
+            <div class="p-3">
+              <div class="product-title">Cookie Box Arándano Limón (6 u)</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$13.990</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <a href="https://ibb.co/s9gcrYDG"><img src="https://i.ibb.co/5h1CVHzy/choc-chip-cookie.jpg" alt="choc-chip-cookie" border="0" /></a>
+            <div class="p-3">
+              <div class="product-title">Cookie Box Chocolate y Maní (6 u)</div>
+              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
+              <div class="product-price mt-2">$15.990</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOS MÁS VENDIDOS -->
+  <section class="py-4">
+    <div class="container-xxl">
+      <h3 class="section-title">Los más vendidos</h3>
+      <div class="carousel-frame p-2">
+        <div id="carVendidos" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row g-3">
+                <div class="col-12 col-md-4"><a href="https://ibb.co/8yZjDs7"><img src="https://i.ibb.co/pHF3vwL/torta-sutil.png" alt="torta-sutil" border="0" /></a></div>
+                <div class="col-12 col-md-4"><a href="https://ibb.co/0VcBV861"><img src="https://i.ibb.co/7NXgN8ZB/galleta-dulce.png" alt="galleta-dulce" border="0" /></a></div>
+                <div class="col-12 col-md-4"><a href="https://ibb.co/5gS6sPGB"><img src="https://i.ibb.co/JwGKr9m5/torta-chocolate-manjar-azu.png" alt="torta-chocolate-manjar-azu" border="0" /></a></div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row g-3">
+                <div class="col-12 col-md-4"><a href="https://ibb.co/yHdQ6vL"><img src="https://i.ibb.co/KTbr24C/carru.jpg" alt="carru" border="0" /></a></div>
+                <div class="col-12 col-md-4"><a href="https://ibb.co/27Wc9Gn6"><img src="https://i.ibb.co/GvnC6zxJ/carru6.jpg" alt="carru6" border="0" /></a></div>
+                <div class="col-12 col-md-4"><a href="https://ibb.co/9HwcV4Dx"><img src="https://i.ibb.co/v4sVQdFN/carru2.jpg" alt="carru2" border="0" /></a></div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carVendidos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carVendidos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÓXIMAMENTE -->
+  <section class="py-4">
+    <div class="container-xxl">
+      <h3 class="section-title">Próximamente…</h3>
+      <div class="carousel-frame p-2">
+        <div id="carProx" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row g-3">
+                <div class="col-6 col-md-3"><a href="https://ibb.co/84PJpR5y"><img src="https://i.ibb.co/M5Pb4jVz/carrusel-1.jpg" alt="carrusel-1" border="0" /></a></div>
+                <div class="col-6 col-md-3"><a href="https://ibb.co/N6CjxQTr"><img src="https://i.ibb.co/0j2Mq8sK/matcha-cookies.jpg" alt="matcha-cookies" border="0" /></a></div>
+                <div class="col-6 col-md-3"><a href="https://imgbb.com/"><img src="https://i.ibb.co/8npjx31Q/carrusel-3.jpg" alt="carrusel-3" border="0" /></a></div>
+                <div class="col-6 col-md-3"><a href="https://ibb.co/NgVbjGTx"><img src="https://i.ibb.co/dsWx2HmB/carrusel-4.png" alt="carrusel-4" border="0" /></a></div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row g-3">
+                <div class="col-6 col-md-3"><a href="https://ibb.co/qF2zCbcV"><img src="https://i.ibb.co/qF2zCbcV/carru-4.jpg" alt="carru-4" border="0" /></a></div>
+                <div class="col-6 col-md-3"><a href="https://ibb.co/Rp3V2vxv"><img src="https://i.ibb.co/hRBts7P7/carru3.jpg" alt="carru3" border="0" /></a></div>
+                <div class="col-6 col-md-3"><a href="https://ibb.co/kVp6dFfN"><img src="https://i.ibb.co/0pkVw3SH/carru5.jpg" alt="carru5" border="0" /></a></div>
+                <div class="col-6 col-md-3"><a href="https://ibb.co/VcNqzHdB"><img src="https://i.ibb.co/pBPLMWgX/cinnamon.jpg" alt="cinnamon" border="0" /></a></div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carProx" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carProx" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="faq-band">
+    <div class="container-xxl">
+      <h3 class="text-center">Preguntas frecuentes</h3>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-4 bg-white border">
+            <h6 class="mb-2 text-uppercase">Para retiro</h6>
+            <p class="mb-0 mini-copy">
+              Te llegará un correo cuando tu pedido esté listo para ser retirado. Tenemos disponibilidad para retiro a partir del día siguiente de tu compra y a veces el mismo día. Puedes agendarlo en el carrito para retiro entre <strong>10:00 y 20:30</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 bg-white border">
+            <h6 class="mb-2 text-uppercase">Para despacho</h6>
+            <p class="mb-0 mini-copy">
+              Debes agendar el despacho con al menos 24 h de anticipación; el despacho opera de <strong>11:00 a 20:00</strong>. No disponemos de horario exacto, el rango se informará el mismo día. En días con alta demanda se recomienda hacer el pedido con anticipación.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONAS DE DESPACHO -->
+  <section class="py-4">
+    <div class="container-xxl">
+      <div class="zone-title">Zonas de despacho</div>
+      <p class="text-center mini-copy mb-4">
+        Despachamos a Lo Barnechea, Vitacura, Las Condes, La Reina y Providencia. Si necesitas hacer un pedido para una dirección diferente, puedes retirar en Vitacura.
+      </p>
+      <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <span class="chip">Lo Barnechea</span>
+        <span class="chip">Vitacura</span>
+        <span class="chip">Las Condes</span>
+        <span class="chip">La Reina</span>
+        <span class="chip">Providencia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container-xxl">
+      <h3 class="section-title mb-1">Newsletter</h3>
+      <p class="text-center mini-copy mb-4">Suscríbete y recibe novedades, beneficios y descuentos exclusivos.</p>
+      <form class="mx-auto" style="max-width:620px">
+        <div class="row g-2">
+          <div class="col-12 col-md">
+            <input type="email" class="form-control rounded-0 border-dark-subtle" placeholder="Dirección de correo electrónico" required>
+          </div>
+          <div class="col-12 col-md-auto d-grid">
+            <button class="btn btn-outline-dark rounded-0 px-4" type="submit">Suscribirse</button>
+          </div>
+        </div>
+      </form>
+      <div class="text-center mt-4 mini-copy">
+        ENCUÉNTRANOS EN NUESTRAS REDES SOCIALES
+        <div class="mt-2">
+          <a href="#" class="me-2 text-dark">Instagram</a> ·
+          <a href="#" class="ms-2 text-dark">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container-xxl">
+      <div>aZú pastelería © 2025. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
