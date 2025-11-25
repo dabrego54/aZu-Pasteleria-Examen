@@ -1,0 +1,126 @@
+:root{
+  --azu-azul:#6c8fb0;
+  --azu-azul-osc:#587a98;
+  --azu-beige:#efe8dd;
+  --azu-texto:#1f1f1f;
+  --azu-gris:#f7f7f7;
+  --azu-borde:#e9e2d9;
+}
+
+body{
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color:var(--azu-texto);
+  background:#ffffff;
+}
+
+h1,h2,h3,h4,.logo{ font-family:'Playfair Display', serif }
+
+/* Barra informativa superior */
+.topbar{
+  background:var(--azu-azul);
+  color:#fff;
+  font-size:.9rem;
+  letter-spacing:.2px;
+}
+.topbar a{ color:#fff; text-decoration:underline }
+
+/* Logo centrado */
+.logo-wrap{ padding:22px 0; }
+.logo{ font-size:64px; line-height:1; letter-spacing:.12em; }
+.logo-sub{ font-size:14px; margin-top:6px; letter-spacing:.25em; text-transform:lowercase; }
+
+/* Navbar beige */
+.navbar-azu{
+  background:var(--azu-beige);
+  border-top:1px solid var(--azu-borde);
+  border-bottom:1px solid var(--azu-borde);
+}
+.navbar-azu .nav-link{
+  color:#000;
+  font-weight:500;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  font-size:.9rem;
+}
+.navbar-azu .nav-link:hover{ opacity:.7 }
+
+/* “Vista previa” */
+.vista-previa-badge{
+  position:absolute; left:0; top:-34px;
+  background:#fff; border:1px solid var(--azu-borde);
+  border-bottom:0; padding:6px 10px;
+  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase;
+}
+
+/* Tarjetas de producto */
+.product-card{
+  border:1px solid var(--azu-borde);
+  background:#fff;
+  transition:.2s ease;
+  height:100%;
+}
+.product-card:hover{ transform:translateY(-2px) }
+.product-card img{ width:100%; height:220px; object-fit:cover }
+.product-title{ font-size:.95rem; font-weight:600; min-height:44px; }
+.product-price{ font-weight:700; color:#000; }
+.btn-azu{
+  background:var(--azu-azul); color:#fff; border:0; border-radius:0;
+  font-size:.85rem; letter-spacing:.08em; text-transform:uppercase;
+}
+.btn-azu:hover{ background:var(--azu-azul-osc); color:#fff }
+
+/* Secciones con títulos centrados */
+.section-title{
+  text-align:center;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+/* Bloques inferiores */
+.faq-band{ background:#e4edf6; padding:44px 0; }
+.faq-band h3{ font-family:'Playfair Display',serif; font-weight:700; margin-bottom:18px; }
+.zone-title{ text-align:center; font-family:'Playfair Display',serif; font-size:32px; margin:18px 0 10px; }
+.newsletter{
+  padding:40px 0;
+  background:#ffffff;
+  border-top:1px solid var(--azu-borde);
+  border-bottom:1px solid var(--azu-borde);
+}
+.footer{ padding:26px 0; text-align:center; font-size:.9rem; color:#777; }
+
+/* Carousels con bordes suaves y spacing */
+.carousel-item img{ object-fit:cover; width:100%; height:320px; }
+.carousel-frame{ border:1px solid var(--azu-borde); background:#fff; }
+
+/* Pequeños detalles */
+.mini-copy{ font-size:.85rem; color:#666 }
+.chip{ background:#fff; border:1px solid var(--azu-borde); padding:6px 10px; border-radius:999px; font-size:.85rem; }
+
+@media (min-width:1200px){
+  .container-xxl{ max-width:1320px }
+}
+
+/* Utilidades del carrito */
+.cart-badge{
+  background:var(--azu-azul);
+  color:#fff;
+  font-size:.75rem;
+  padding:2px 8px;
+  border-radius:999px;
+  margin-left:6px;
+}
+.cart-modal-table th, .cart-modal-table td{ vertical-align:middle; }
+
+/* PDP layout */
+.pdp-hero{ border:1px solid var(--azu-borde); background:#fff; }
+.pdp-price{ font-size:1.25rem; font-weight:700; }
+
+/* 404 */
+.notfound-wrap{ padding:80px 0; text-align:center; }
+.notfound-wrap h1{ font-size:48px; font-weight:700; }
+
+/* Links y botones auxiliares */
+.link-azu{ color:var(--azu-azul); }
+.link-azu:hover{ color:var(--azu-azul-osc); }

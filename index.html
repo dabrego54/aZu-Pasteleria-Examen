@@ -10,140 +10,7 @@
 
   <!-- Tipografías (similares a la maqueta) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --azu-azul:#6c8fb0;        /* barra superior + botones */
-      --azu-azul-osc:#587a98;    /* hover */
-      --azu-beige:#efe8dd;       /* navbar */
-      --azu-texto:#1f1f1f;
-      --azu-gris:#f7f7f7;
-      --azu-borde:#e9e2d9;
-    }
-
-    body{ font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--azu-texto); background:#ffffff}
-    h1,h2,h3,h4,.logo{ font-family:'Playfair Display', serif }
-
-    /* Barra informativa superior */
-    .topbar{
-      background:var(--azu-azul);
-      color:#fff;
-      font-size:.9rem;
-      letter-spacing:.2px;
-    }
-    .topbar a{ color:#fff; text-decoration:underline }
-
-    /* Logo centrado */
-    .logo-wrap{
-      padding:22px 0;
-    }
-    .logo{
-      font-size:64px;
-      line-height:1;
-      letter-spacing:.12em;
-    }
-    .logo-sub{
-      font-size:14px;
-      margin-top:6px;
-      letter-spacing:.25em;
-      text-transform:lowercase;
-    }
-
-    /* Navbar beige */
-    .navbar-azu{
-      background:var(--azu-beige);
-      border-top:1px solid var(--azu-borde);
-      border-bottom:1px solid var(--azu-borde);
-    }
-    .navbar-azu .nav-link{
-      color:#000;
-      font-weight:500;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size:.9rem;
-    }
-    .navbar-azu .nav-link:hover{ opacity:.7 }
-
-    /* “Vista previa” */
-    .vista-previa-badge{
-      position:absolute; left:0; top:-34px;
-      background:#fff; border:1px solid var(--azu-borde);
-      border-bottom:0; padding:6px 10px;
-      font-size:.8rem; letter-spacing:.1em; text-transform:uppercase;
-    }
-
-    /* Tarjetas de producto */
-    .product-card{
-      border:1px solid var(--azu-borde);
-      background:#fff;
-      transition:.2s ease;
-      height:100%;
-    }
-    .product-card:hover{ transform:translateY(-2px) }
-    .product-card img{ width:100%; height:220px; object-fit:cover }
-    .product-title{
-      font-size:.95rem; font-weight:600; min-height:44px;
-    }
-    .product-price{
-      font-weight:700; color:#000;
-    }
-    .btn-azu{
-      background:var(--azu-azul); color:#fff; border:0; border-radius:0;
-      font-size:.85rem; letter-spacing:.08em; text-transform:uppercase;
-    }
-    .btn-azu:hover{ background:var(--azu-azul-osc); color:#fff }
-
-    /* Secciones con títulos centrados */
-    .section-title{
-      text-align:center;
-      font-weight:600;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      margin-bottom:22px;
-    }
-
-    /* Bloques inferiores */
-    .faq-band{
-      background:#e4edf6; /* azul muy claro similar */
-      padding:44px 0;
-    }
-    .faq-band h3{
-      font-family:'Playfair Display',serif;
-      font-weight:700;
-      margin-bottom:18px;
-    }
-    .zone-title{
-      text-align:center; font-family:'Playfair Display',serif;
-      font-size:32px; margin:18px 0 10px;
-    }
-    .newsletter{
-      padding:40px 0;
-      background:#ffffff;
-      border-top:1px solid var(--azu-borde);
-      border-bottom:1px solid var(--azu-borde);
-    }
-    .footer{
-      padding:26px 0; text-align:center; font-size:.9rem; color:#777;
-    }
-
-    /* Carousels con bordes suaves y spacing */
-    .carousel-item img{ object-fit:cover; width:100%; height:320px; }
-    .carousel-frame{
-      border:1px solid var(--azu-borde);
-      background:#fff;
-    }
-
-    /* Pequeños detalles */
-    .mini-copy{ font-size:.85rem; color:#666 }
-    .chip{
-      background:#fff; border:1px solid var(--azu-borde);
-      padding:6px 10px; border-radius:999px; font-size:.85rem;
-    }
-
-    @media (min-width:1200px){
-      .container-xxl{ max-width:1320px }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -161,17 +28,16 @@
   </div>
 
   <!-- NAV -->
-  <nav class="navbar navbar-expand-lg navbar-azu">
+  <nav class="navbar navbar-expand-lg navbar-azu navbar-light">
     <div class="container-xxl">
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navMain">
         <ul class="navbar-nav gap-3">
-          <li class="nav-item"><a class="nav-link" href="#">Sobre nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Tiendas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Cumpleaños</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="plp.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">Carrito <span id="cartCount" class="cart-badge"></span></a></li>
         </ul>
       </div>
     </div>
@@ -182,98 +48,7 @@
     <div class="container-xxl">
       <span class="vista-previa-badge">Vista previa</span>
 
-      <div class="row g-4">
-        <!-- Producto -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://ibb.co/k27ThCD0"><img src="https://i.ibb.co/hF6NKzdH/torta-1.jpg" alt="torta-1" border="0"></a>
-            <div class="p-3">
-              <div class="product-title">Torta Palmera Manjar y Frambuesa</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$25.990</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://ibb.co/S4QVbx08"><img src="https://i.ibb.co/hJX2bMHj/torta-merengue-manjar.png" alt="torta-merengue-manjar" border="0" /></a>
-            <div class="p-3">
-              <div class="product-title">Torta Milhoja Manjar y Merengue</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$32.990</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://ibb.co/SDxRDtff"><img src="https://i.ibb.co/9mvsmbZZ/carrot-cake.jpg" alt="carrot-cake" border="0" /></a>
-            <div class="p-3">
-              <div class="product-title">Torta Zanahoria Queso Crema</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$31.990</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://ibb.co/8DRZkyPr"><img src="https://i.ibb.co/fYKwJ3rk/Brazo-merengue-framb.png" alt="Brazo-merengue-framb" border="0" /></a>
-            <div class="p-3">
-              <div class="product-title">Torta Helada Merengue Frambuesa</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$19.990</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- fila 2 -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://imgbb.com/"><img src="https://i.ibb.co/k6Qzpw21/brownie-box.jpg" alt="brownie-box" border="0" /></a>
-            <div class="p-3">
-              <div class="product-title">Caja de Fudge Brownie (9 trozos)</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$12.990</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://ibb.co/YBCB3nFs"><img src="https://i.ibb.co/CKcKzC3G/tableto-n-psitacho.jpg" alt="tableto-n-psitacho" border="0" /></a>
-            <div class="p-3">
-              <div class="product-title">Tableta Chocolate Pistacho 100 g</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$5.990</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://ibb.co/YTKhQ0yF"><img src="https://i.ibb.co/wrb4gcwF/galleta-ara-ndano.jpg" alt="galleta-ara-ndano" border="0" /></a>
-            <div class="p-3">
-              <div class="product-title">Cookie Box Arándano Limón (6 u)</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$13.990</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="product-card">
-            <a href="https://ibb.co/s9gcrYDG"><img src="https://i.ibb.co/5h1CVHzy/choc-chip-cookie.jpg" alt="choc-chip-cookie" border="0" /></a>
-            <div class="p-3">
-              <div class="product-title">Cookie Box Chocolate y Maní (6 u)</div>
-              <div class="d-grid mt-2"><button class="btn btn-azu">Agregar al carrito</button></div>
-              <div class="product-price mt-2">$15.990</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="row g-4" id="homeProducts"></div>
     </div>
   </section>
 
@@ -420,6 +195,63 @@
     </div>
   </footer>
 
+  <!-- Carrito Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Carrito de compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table cart-modal-table">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody id="cartItems"></tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <strong>Total:</strong>
+            <span id="cartTotal">$0</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary rounded-0" onclick="clearCart()">Vaciar carrito</button>
+          <button class="btn btn-azu" data-bs-dismiss="modal">Seguir comprando</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    function buildProductCard(product){
+      return `<div class="col-12 col-sm-6 col-lg-3">
+        <div class="product-card home-card">
+          <a href="pdp.html?id=${product.id}"><img src="${product.imagen}" alt="${product.nombre}" loading="lazy"></a>
+          <div class="p-3">
+            <div class="product-title">${product.nombre}</div>
+            <div class="text-muted small mt-1">${product.categoria}</div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('homeProducts');
+      if(grid){
+        grid.innerHTML = products.map(buildProductCard).join('');
+      }
+    });
+  </script>
 </body>
 </html>
