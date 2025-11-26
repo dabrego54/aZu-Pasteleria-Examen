@@ -22,6 +22,7 @@ function addToCart(productId){
   saveCart();
   renderCartBadge();
   renderCartModal();
+  renderCheckoutSummary();
 }
 
 function removeFromCart(productId){
@@ -29,6 +30,7 @@ function removeFromCart(productId){
   saveCart();
   renderCartBadge();
   renderCartModal();
+  renderCheckoutSummary();
 }
 
 function clearCart(){
@@ -36,6 +38,7 @@ function clearCart(){
   saveCart();
   renderCartBadge();
   renderCartModal();
+  renderCheckoutSummary();
 }
 
 function getCartTotal(){
@@ -82,14 +85,78 @@ function renderCartModal(){
   totalEl.textContent = formatCurrency(getCartTotal());
 }
 
+function goToCheckout(){
+  if(cart.length === 0){
+    alert('Tu carrito está vacío. Agrega productos antes de continuar.');
+    return;
+  }
+  window.location.href = 'checkout.html';
+}
+
+function renderCheckoutSummary(){
+  const tbody = document.querySelector('#checkoutItems');
+  const totalEl = document.querySelector('#checkoutTotal');
+  const emptyAlert = document.querySelector('#checkoutEmpty');
+  if(!tbody || !totalEl) return;
+
+  if(cart.length === 0){
+    tbody.innerHTML = '';
+    totalEl.textContent = formatCurrency(0);
+    if(emptyAlert){
+      emptyAlert.classList.remove('d-none');
+    }
+    return;
+  }
+
+  if(emptyAlert){
+    emptyAlert.classList.add('d-none');
+  }
+
+  tbody.innerHTML = cart.map(item => {
+    const subtotal = item.precio * item.cantidad;
+    return `<tr>
+      <td>${item.nombre}</td>
+      <td>${item.cantidad}</td>
+      <td>${formatCurrency(item.precio)}</td>
+      <td>${formatCurrency(subtotal)}</td>
+    </tr>`;
+  }).join('');
+
+  totalEl.textContent = formatCurrency(getCartTotal());
+}
+
+function handleCheckoutSubmit(event){
+  event.preventDefault();
+  const form = event.target;
+
+  if(cart.length === 0){
+    alert('Tu carrito está vacío. Agrega productos antes de finalizar la compra.');
+    return;
+  }
+
+  if(!form.checkValidity()){
+    form.reportValidity();
+    return;
+  }
+
+  clearCart();
+  window.location.href = 'success.html';
+}
+
 function initCart(){
   loadCartFromStorage();
   renderCartBadge();
   renderCartModal();
+  renderCheckoutSummary();
 
   const cartModalEl = document.getElementById('cartModal');
   if(cartModalEl){
     cartModalEl.addEventListener('shown.bs.modal', renderCartModal);
+  }
+
+  const checkoutForm = document.getElementById('checkoutForm');
+  if(checkoutForm){
+    checkoutForm.addEventListener('submit', handleCheckoutSubmit);
   }
 }
 
